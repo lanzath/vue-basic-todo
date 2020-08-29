@@ -1,4 +1,6 @@
-# vue-todo
+## <p align="center">To-do Basicão feito em Vue para aprender os conceitos básicos e sintaxes</p>
+
+###### Projeto da playlist [Iniciando com Vue.JS](https://www.youtube.com/watch?v=ufQhPH0eyvo&list=PLp7Agl_Dsq-xkB8iOTb3yTrfYpH6rDQL8) do canal [Switch Case](https://www.youtube.com/c/SwitchCaseDev)
 
 ## Project setup
 ```

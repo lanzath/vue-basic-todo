@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    Hello World
+    <div class="container grid-xs py-2">
+      <!-- Webpack sets src folder as @ -->
+      <img class="img-responsive img-logo" src="@/assets/todoLogo.png" alt="Logo">
+      <form action="">
+        <div class="input-group py-2">
+          <input class="form-input" type="text" placeholder="Nova tarefa">
+          <button class="btn btn-primary input-group-btn">Adicionar</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
-<style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 20px;
-    padding-top: 20px;
-    text-align: center;
-    color: #2c3e50;
+<script>
+  export default {
+    name: 'app'
+  }
+</script>
+
+<style scoped>
+  .img-logo {
+    max-width: 200px;
+    margin: 0 auto;
   }
 </style>

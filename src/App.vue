@@ -18,30 +18,24 @@
       </form>
 
       <div class="todo-list">
-        <div v-for="todo in todos" :key="todo.id" class="tile">
-          <div class="tile-icon">
-            <i class="icon icon-time flex-centered"></i>
-          </div>
-
-          <div class="tile-content">
-            <p class="tile-subtitle">{{ todo.description }}</p>
-          </div>
-
-          <div class="tile-action">
-            <button class="btn btn-link">Concluído</button>
-            <button class="btn btn-link">
-              <span class="text-error">Remover</span>
-            </button>
-          </div>
-        </div>
+        <Todo
+          v-for="todo in todos"
+          :key="todo.id"
+          @toggle="toggleTodo"
+          @remove="removeTodo"
+          :todo="todo"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import Todo from './components/Todo';
+
   export default {
     name: 'app',
+    components: { Todo },
     data() {
       return { todos: [], todo: { checked: false } };
     },
@@ -50,6 +44,21 @@
         todo.id = Date.now();
         this.todos.push(todo);
         this.todo = { checked: false };
+      },
+
+      toggleTodo(todo) {
+        const index = this.todos.findIndex(item => item.id === todo.id);
+        if (index > -1) {
+          const checked = !this.todos[index].checked;
+          this.$set(this.todos, index, {...this.todos[index], checked})
+        }
+      },
+
+      removeTodo(todo) {
+        const index = this.todos.findIndex(item => item.id === todo.id);
+        if (index > -1) {
+          this.$delete(this.todos, index);
+        }
       }
     }
   }

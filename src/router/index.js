@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import Home from '@/views/Home';
+import Kanban from '@/views/kanban/Kanban';
 
 Vue.use(VueRouter)
 
@@ -11,6 +12,11 @@ Vue.use(VueRouter)
     name: 'Home',
     component: Home
   },
+  {
+    path: '/kanban',
+    name: 'Kanban',
+    component: Kanban
+  }
 ];
 
 const router = new VueRouter({ routes });

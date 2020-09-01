@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container grid-lg pt-2">
+    <div class="container grid-lg pt-1">
       <header class="navbar">
         <section class="navbar-section">
           <router-link to="/" class="btn btn-link">Home</router-link>
@@ -16,15 +16,15 @@
         </section>
       </header>
 
-      <router-view />
+      <router-view class="pt-2" />
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'app'
-  }
+export default {
+  name: 'app'
+}
 </script>
 
 <style scoped>

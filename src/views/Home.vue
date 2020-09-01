@@ -1,8 +1,5 @@
 <template>
   <div class="container grid-xs py-2">
-      <!-- Webpack sets src folder as @ -->
-      <img class="img-responsive img-logo" src="@/assets/todoLogo.png" alt="Logo" />
-
       <!-- Submit and prevent default event -->
       <form @submit.prevent="addTodo(todo)">
         <div class="input-group py-2">
@@ -63,11 +60,6 @@ export default {
 </script>
 
 <style scoped>
-  .img-logo {
-      max-width: 200px;
-      margin: 0 auto;
-    }
-
   .todo-list {
     padding-top: 2rem;
   }

@@ -9,7 +9,7 @@
             class="form-input"
             placeholder="Nova tarefa"
           />
-          <button class="btn btn-primary input-group-btn">Adicionar</button>
+          <button class="btn btn-primary input-group-btn" :class="{loading}">Adicionar</button>
         </div>
       </form>
 
@@ -32,13 +32,22 @@ export default {
   name: 'Home',
   components: { Todo },
   data() {
-      return { todos: [], todo: { checked: false } };
+      return { todo: { checked: false }, loading: false };
+    },
+    computed: {
+      todos() {
+        return this.$store.state.todos;
+      }
     },
     methods: {
-      addTodo(todo) {
-        todo.id = Date.now();
-        this.todos.push(todo);
-        this.todo = { checked: false };
+      async addTodo(todo) {
+        try {
+          this.loading = true;
+          await this.$store.dispatch('addTodo', todo);
+          this.todo = { checked: false };
+        } finally {
+          this.loading = false;
+        }
       },
 
       toggleTodo(todo) {

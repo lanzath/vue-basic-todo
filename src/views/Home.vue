@@ -1,7 +1,7 @@
 <template>
   <div class="container grid-xs py-2">
       <!-- Submit and prevent default event -->
-      <form @submit.prevent="addTodo(todo)">
+      <form @submit.prevent="add(todo)">
         <div class="input-group py-2">
           <input
             type="text"
@@ -27,6 +27,7 @@
 
 <script>
 import Todo from '@/components/Todo';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'Home',
@@ -35,25 +36,16 @@ export default {
       return { todo: { checked: false } };
     },
     computed: {
-      todos() {
-        return this.$store.state.todos;
-      },
-      loading() {
-        return this.$store.state.loading;
-      }
+      // mapping states with vuex to handle states change
+      ...mapState(['todos', 'loading'])
     },
     methods: {
-      async addTodo(todo) {
-        await this.$store.dispatch('addTodo', todo);
+      // mapping actions with vuex to handle todos functionalities
+      ...mapActions(['addTodo', 'toggleTodo', 'removeTodo']),
+
+      async add(todo) {
+        await this.addTodo(todo);
         this.todo = { checked: false }
-      },
-
-      toggleTodo(todo) {
-        this.$store.dispatch('toggleTodo', todo);
-      },
-
-      removeTodo(todo) {
-        this.$store.dispatch('removeTodo', todo);
       }
     }
 }

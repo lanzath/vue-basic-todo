@@ -11,7 +11,7 @@
           <img class="img-responsive img-logo" src="@/assets/todoLogo.png" alt="Logo" />
         </section>
         <section class="navbar-section">
-          <a href="https://github.com/lanzath" class="btn btn-link">Github</a>
+          <a href="https://github.com/lanzath/vue-basic-todo.git" class="btn btn-link">Github (Source Code)</a>
           <a href="https://www.linkedin.com/in/mt-lanza/" class="btn btn-link">LinkedIn</a>
         </section>
       </header>
